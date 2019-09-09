@@ -62,7 +62,9 @@ function start() {
 						// console.log(res[i].stock_quantity);
 
 						if (parseInt(answers.numbToBuy) > res[i].stock_quantity) {
+
                             console.log('Insufficient quantity!');
+                            console.log('Try Again!');
                             start();
 						} else {
 							// console.log('lets order');
@@ -76,8 +78,28 @@ function start() {
 							]);
 							console.log('Your total amount is: '+ res[i].price);
                             console.log('Amount left: '+ res[i].stock_quantity);
+
+                            inquirer.prompt([
+                                {
+                                    type: 'list',
+                                    name: 'startOver',
+                                    mesage: 'Do you want to keep shopping?',
+                                    choices: ['yes', 'no']
+                                }
+                            ]).then(function(answer){
+
+                                // console.log(answer)
+                                console.log(answer.startOver)
+
+                                if(answer.startOver === 'yes'){
+                                    start()
+                                }else{
+                                    console.log('Thank you for shopping with us!')
+                                }
+
+                            })
+
                             
-                            start()
 						}
 					} else {
 						// console.log('no')
