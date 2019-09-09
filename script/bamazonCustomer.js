@@ -62,10 +62,9 @@ function start() {
 						// console.log(res[i].stock_quantity);
 
 						if (parseInt(answers.numbToBuy) > res[i].stock_quantity) {
-
-                            console.log('Insufficient quantity!');
-                            console.log('Try Again!');
-                            start();
+							console.log('Insufficient quantity!');
+							console.log('Try Again!');
+							start();
 						} else {
 							// console.log('lets order');
 							connection.query('UPDATE products SET ? WHERE ?', [
@@ -76,30 +75,28 @@ function start() {
 									id: res[i].id
 								}
 							]);
-							console.log('Your total amount is: '+ res[i].price);
-                            console.log('Amount left: '+ res[i].stock_quantity);
+							console.log('Your total amount is: ' + res[i].price);
+							console.log('Amount left: ' + res[i].stock_quantity);
 
-                            inquirer.prompt([
-                                {
-                                    type: 'list',
-                                    name: 'startOver',
-                                    mesage: 'Do you want to keep shopping?',
-                                    choices: ['yes', 'no']
-                                }
-                            ]).then(function(answer){
+							inquirer
+								.prompt([
+									{
+										type: 'list',
+										name: 'startOver',
+										mesage: 'Do you want to keep shopping?',
+										choices: [ 'yes', 'no' ]
+									}
+								])
+								.then(function(answer) {
+									// console.log(answer)
+									console.log(answer.startOver);
 
-                                // console.log(answer)
-                                console.log(answer.startOver)
-
-                                if(answer.startOver === 'yes'){
-                                    start()
-                                }else{
-                                    console.log('Thank you for shopping with us!')
-                                }
-
-                            })
-
-                            
+									if (answer.startOver === 'yes') {
+										start();
+									} else {
+										console.log('Thank you for shopping with us!');
+									}
+								});
 						}
 					} else {
 						// console.log('no')
