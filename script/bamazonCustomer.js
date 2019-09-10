@@ -59,8 +59,8 @@ function start() {
 						console.log('matched');
 						var selectedProduct = res[i].product_name;
 						console.log(selectedProduct);
-						// console.log(res[i].stock_quantity);
-						console.log('Amount left: ' + res[i].stock_quantity);
+						console.log('Price per unit: $' + res[i].price);
+						console.log('Amount currently in stock: ' + res[i].stock_quantity);
 
 						if (parseInt(answers.numbToBuy) > res[i].stock_quantity) {
 							console.log('Insufficient quantity!');
@@ -76,8 +76,8 @@ function start() {
 									id: res[i].id
 								}
 							]);
-							console.log('Your total amount is: ' + (res[i].price * parseInt(answers.numbToBuy)));
-							console.log('Amount left: ' + (res[i].stock_quantity - parseInt(answers.numbToBuy)));
+							console.log('Your total amount is: $' + (res[i].price * parseInt(answers.numbToBuy)));
+							console.log('Amount left after purchase: ' + (res[i].stock_quantity - parseInt(answers.numbToBuy)));
 							
 
 							inquirer
