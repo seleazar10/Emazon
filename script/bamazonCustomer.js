@@ -85,7 +85,7 @@ function start() {
 									{
 										type: 'list',
 										name: 'startOver',
-										mesage: 'Do you want to keep shopping?',
+										message: 'Do you want to keep shopping?',
 										choices: [ 'yes', 'no' ]
 									}
 								])
