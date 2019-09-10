@@ -9,8 +9,8 @@ var begin = function(){
             message: 'Select from the menu below:',
             choices: ['View Products for Sale', 'View Low Inventory', 'Add to Inventory', 'Add New Product']
         }
-    ]).then(function(answer){
-        console.log(answer)
+    ]).then(function(ans){
+        console.log(ans)
     })
 }
 
