@@ -46,7 +46,12 @@ var begin = function() {
 							console.log('$' + res[i].price);
 							console.log(res[i].stock_quantity);
 							console.log('-----------------------------------------------------------');
-						}
+						}else if(ans.selectPrompt === 'View Low Inventory'){
+                            console.log(res[i].id);
+                            console.log(res[i].stock_quantity);
+							console.log('-----------------------------------------------------------');
+
+                        }
 					}
 
 					//
