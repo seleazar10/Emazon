@@ -18,7 +18,6 @@ connection.connect(function(err) {
 	}
 });
 
-
 var begin = function() {
 	inquirer
 		.prompt([
@@ -31,6 +30,30 @@ var begin = function() {
 		])
 		.then(function(ans) {
 			console.log(ans);
+			console.log(ans.selectPrompt);
+
+			
+			function productSales() {
+				// for (var i=0; i<)
+				connection.query('SELECT * FROM products', function(err, res) {
+					if (err) throw err;
+					console.log(res);
+
+					for (var i = 0; i < res.length; i++) {
+						if (ans.selectPrompt === 'View Products for Sale') {
+							console.log(res[i].id);
+							console.log(res[i].product_name);
+							console.log('$' + res[i].price);
+							console.log(res[i].stock_quantity);
+							console.log('-----------------------------------------------------------');
+						}
+					}
+
+					//
+				});
+            };
+            
+            productSales()
 		});
 };
 
